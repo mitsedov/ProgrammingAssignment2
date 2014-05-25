@@ -39,16 +39,16 @@ makeCacheMatrix <- function(x = matrix()) {
 
 cacheSolve <- function(x, ...) {
     inv <- x$getinverse()
-	if (!is.null(inv)){
-		## This piece of code returns the inverse matrix 
-		## if it is already in cache
-		message("Getting cached inverse matrix")
-		return(inv)
-	}
-	## This piece of code computes the inverse and stores 
-	## it in cache if it wasn't done before 
-	mat <- x$get()
-	inv <- solve(mat)
-	x$setinverse(inv)
-	inv
+    if (!is.null(inv)){
+	## This piece of code returns the inverse matrix 
+	## if it is already in cache
+	message("Getting cached inverse matrix")
+	return(inv)
+    }
+    ## This piece of code computes the inverse and stores 
+    ## it in cache if it wasn't done before 
+    mat <- x$get()
+    inv <- solve(mat)
+    x$setinverse(inv)
+    inv
 }
